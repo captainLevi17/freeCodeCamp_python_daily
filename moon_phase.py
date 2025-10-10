@@ -14,8 +14,8 @@ After day 28, the cycle repeats with day 1, a new moon.
 Use "2000-01-06" as a reference new moon (day 1 of the cycle) to determine the phase of the given day.
 You will not be given any dates before the reference date.
 Return the correct phase as a string.
-'''
-'''
+
+How to solve:
 1. Parse the input date string to extract year, month, and day.
 2. Calculate the total number of days between the reference date (2000-01-06) and the input date.
 3. Determine the day in the lunar cycle by taking the total days modulo 28.
@@ -28,8 +28,12 @@ Return the correct phase as a string.
 '''
 
 def moon_phase(date_string):
+    # parse date and calculate days since reference date
     import datetime
-    y, m, d = map(int, date_string.split("-"))
+    date = date_string.split("-")
+    y = int(date[0])
+    m = int(date[1])
+    d = int(date[2])
     ref = datetime.date(2000, 1, 6)
     target = datetime.date(y, m, d)
     days = (target - ref).days
@@ -44,32 +48,9 @@ def moon_phase(date_string):
     else:
         date_string = "Waning"
     return date_string
+import datetime
+tday = datetime.date.today()
+bday = datetime.date(1996, 10, 17)
 
-    '''
-    from datetime import date
-    y, m, d = map(int, date_string.split("-"))
-    ref = date(2000, 1, 6)
-    target = date(y, m, d)
-    days = (target - ref).days
-    print(days)
-    # Determine the day in the lunar cycle
-    lunar_day = (days % 28) + 1
-    # Map lunar day to moon phase
-    if 1 <= lunar_day <= 7:
-        date_string = "New"
-    elif 8 <= lunar_day <= 14:
-        date_string = "Waxing"
-    elif 15 <= lunar_day <= 21:
-        date_string = "Full"
-    else:
-        date_string = "Waning"
-    return date_string
-    '''
-    
-
-
-print(moon_phase("2000-01-12"))
-print(moon_phase("2000-01-13"))
-print(moon_phase("2014-10-15")) 
-print(moon_phase("2012-10-21"))
-print(moon_phase("2022-12-14"))
+y = (tday.month - bday.month)
+print(y)
