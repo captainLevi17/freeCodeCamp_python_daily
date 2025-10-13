@@ -65,4 +65,4 @@ def battle(our_team, opponent):
         return "Draw"
     else:
         return "We lose"
-
+    
