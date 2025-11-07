@@ -16,13 +16,25 @@ Check if the computed signature matches the provided signature.
 '''
 import string
 def verify(message, key, signature):
+    # iterate through a-z and A-Z to get their corresponding values
+    # store in a dictionary
     values = {c: i for i, c in enumerate(string.ascii_lowercase + string.ascii_uppercase, start=1)}
-    print(values['A'])
+   # compute message and key values
+    message_values = 0
+    key_values = 0
+    # iterate through message and key to get their corresponding values
+    for char in message:
+        if char in values:
+            message_values += values[char]
+    for char in key:
+        if char in values:
+            key_values += values[char]
+# compute signature and compare to provided signature
+    computed_signature = message_values + key_values
+    # return True if computed_signature matches provided signature, else False
+    if computed_signature == signature:
+        message = True
+    else:
+        message = False
+
     return message
-
-
-verify("foo", "bar", 57)
-
-#Pseudocode
-# Define a function verify that takes message, key, and signature as input
-# 
