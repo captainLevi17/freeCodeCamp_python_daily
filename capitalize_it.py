@@ -13,5 +13,3 @@ def title_case(title):
         word = i[1:].lower()
         capitalized_words.append(i[0].capitalize() + word)
     return ' '.join(capitalized_words)
-
-print(title_case("hello world"))
