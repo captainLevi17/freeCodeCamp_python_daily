@@ -21,4 +21,3 @@ def update_inventory(inventory, shipment):
             inventory.append(object)
     return inventory
 
-print(update_inventory([[2, "apples"], [5, "bananas"]], [[1, "apples"], [3, "bananas"]]))
