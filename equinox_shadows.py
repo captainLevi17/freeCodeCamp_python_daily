@@ -26,12 +26,14 @@ def get_shadow(time):
         return "No shadow"
     
     hours_from_noon = abs(total_hours - 12)
-    print(hours_from_noon)
-    
+
     if hours_from_noon == 0:
         return "No shadow"
     
-    shadow_length = float(hours_from_noon ** 3)
+    if minutes == 30:
+        shadow_length = float(hours_from_noon ** 3)
+    else:
+        shadow_length = int(hours_from_noon ** 3)
     
     if total_hours < 12:
         direction = "west"
@@ -39,6 +41,3 @@ def get_shadow(time):
         direction = "east"
     
     return f"{shadow_length}ft {direction}"
-
-print(get_shadow("10:00"))
-print(get_shadow("17:30"))

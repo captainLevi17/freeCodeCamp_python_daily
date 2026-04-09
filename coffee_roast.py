@@ -18,8 +18,6 @@ Return:
 '''
 
 def detect_roast(beans):
-    if not beans:
-        return "Light"
     
     total_points = 0
     for bean in beans:
