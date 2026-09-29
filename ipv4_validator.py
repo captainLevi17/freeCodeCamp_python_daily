@@ -1,25 +1,20 @@
 '''
-IPv4 Validator
-Given a string, determine if it is a valid IPv4 Address. A valid IPv4 address consists of four integer numbers separated by dots (.). Each number must satisfy the following conditions:
+Reverse Sentence
+Given a string of words, return a new string with the words in reverse order. For example, the first word should be at the end of the returned string, and the last word should be at the beginning of the returned string.
 
-It is between 0 and 255 inclusive.
-It does not have leading zeros (e.g. 0 is allowed, 01 is not).
-Only numeric characters are allowed.
+In the given string, words can be separated by one or more spaces.
+The returned string should only have one space between words.
 
 '''
 
-def is_valid_ipv4(ip):
-    parts = ip.split('.')
-    if len(parts) != 4:
-        return False
-
-    for part in parts:
-        if not part.isdigit():
-            return False
-        num = int(part)
-        if num < 0 or num > 255:
-            return False
-        if part != str(num):  # Check for leading zeros
-            return False
-
-    return True
+def reverse_sentence(sentence):
+    # Split the sentence into words using split() which handles multiple spaces
+    words = sentence.split()
+    
+    # Reverse the list of words
+    reversed_words = words[::-1]
+    
+    # Join the reversed list of words into a single string with a single space
+    reversed_sentence = ' '.join(reversed_words)
+    
+    return reversed_sentence
